@@ -1,0 +1,54 @@
+<div class="alertArea"></div>
+
+<div class="small-box">
+    <h2>Recuperar Conta</h2>
+    <div class="container">
+        <form id="formstd">
+            <fieldset>
+                <input class="proj-form-login" name="email" id="email" type="email" placeholder="Email"><br>
+            </fieldset>
+
+            <div class="form-btn-column">
+                <button class="form-btn" id="btnSend" type="button">Enviar</button>
+                <button class="form-btn" id="btnCancel" type="button">Cancelar</button>
+            </div> 
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+	function alertFunc(message) {
+		var alertBox = document.createElement('div')
+	    alertBox.setAttribute('class', 'alertMsg')
+	    alertBox.appendChild(document.createTextNode(message))
+	    document.querySelector('.alertArea').appendChild(alertBox);
+	    setTimeout(function() { document.querySelector('.alertArea').removeChild(alertBox) }, 4000)
+	}
+
+	$(document).ready(
+			
+		function() {
+			$("#btnSend").click(
+				function() {
+					var formData = $("#formstd").serialize();
+					$.post( "operation/recuperar.jsp", formData, function( data, status ) {
+						var objReturn = $.parseJSON( data );
+						if ( objReturn.exist == "true" ){
+							alertFunc("Um link para recuperação foi enviado ao seu email!")
+						} else {
+							alertFunc("Esse email não está em uso.");
+						}
+					});	
+					
+				}
+			);
+			
+			$("#btnCancel").click(
+				function() {
+					window.location.href = "login.html";
+				}		
+			);
+		} 
+	);
+	
+</script>
