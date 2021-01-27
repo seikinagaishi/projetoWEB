@@ -10,7 +10,7 @@
 		if ( ! (userLogin > 0 )){
 		}
 		else {
-			response.sendRedirect("index.html");
+			response.sendRedirect("../index.html");
 		}
 	}
 	else {
@@ -55,7 +55,7 @@
 			}
 		}
 		else {
-			response.sendRedirect("login.html");
+			response.sendRedirect("../login.html");
 		}
 	}
 	

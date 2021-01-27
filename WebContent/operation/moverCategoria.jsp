@@ -10,7 +10,7 @@
 		int userLogin = 0; 
 		userLogin = (int) session.getAttribute("userlogin");
 		if ( ! (userLogin > 0 )){
-			response.sendRedirect("login.html");
+			response.sendRedirect("../login.html");
 		}
 		
 		else {
@@ -18,7 +18,7 @@
 			usuario.next();
 			
 			if( !(usuario.getInt("idNivelUsuario") > 1) ) {
-				response.sendRedirect("login.html");
+				response.sendRedirect("../login.html");
 			}
 			
 			String idTopico    = request.getParameter("idTopico");
@@ -39,6 +39,6 @@
 		}
 	}
 	else {
-		response.sendRedirect("login.html");
+		response.sendRedirect("../login.html");
 	}
 %>

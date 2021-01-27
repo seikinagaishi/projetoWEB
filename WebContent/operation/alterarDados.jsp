@@ -9,7 +9,7 @@
 		int userLogin = 0; 
 		userLogin = (int) session.getAttribute("userlogin");
 		if ( ! (userLogin > 0 )){
-			response.sendRedirect("login.html");
+			response.sendRedirect("../login.html");
 		}
 		
 		else {
@@ -44,6 +44,6 @@
 		}
 	}
 	else {
-		response.sendRedirect("login.html");
+		response.sendRedirect("../login.html");
 	}
 %>
